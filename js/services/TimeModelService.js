@@ -12,6 +12,6 @@ angular.module("myApp")
         };
         tmService.timers.push(new CounterModel("up",true));
         tmService.timers.push(new CounterModel("up",false));
-        tmService.timers.push(new CounterModel("down",false));
+        tmService.timers.push(new CounterModel("down",false,10000));
         return tmService;
     });

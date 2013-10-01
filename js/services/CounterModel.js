@@ -22,9 +22,13 @@ angular.module("myApp")
             if(direction === "down"){
                 this.direction = -1;
             }
+            function startTimer(){
+                $timeout(function(){
+                    self.counter = self.counter + self.direction;
+                    startTimer();
+                },SPEED);
+            }
+            startTimer();
 
-            $timeout(function(){
-                self.counter = self.counter + self.direction;
-            },SPEED);
         };
     });
