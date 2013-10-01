@@ -28,7 +28,7 @@ angular.module("myApp")
                 self.checkFinished();
             };
             this.checkFinished = function(){
-                if(this.data.counter < 0 ){
+                if(this.data.counter < 1 ){
                     this.data.finished = true;
                     deregister();
                 }
