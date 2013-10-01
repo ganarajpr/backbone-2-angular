@@ -25,7 +25,10 @@ angular.module("myApp")
             function startTimer(){
                 $timeout(function(){
                     self.counter = self.counter + self.direction;
-                    startTimer();
+                    if(self.counter > 0){
+                        startTimer();
+                    }
+
                 },SPEED);
             }
             startTimer();
