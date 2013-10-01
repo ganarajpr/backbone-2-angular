@@ -1,7 +1,7 @@
 angular.module("myApp")
     .controller("SecondsController",function($scope){
 
-        $scope.$watch('timer.data.invalid+timer.data.finished+timer.data.counter', function () {
+        $scope.$watch('timer.data.invalid+timer.data.finished+timer.data.counter+timer.data.timestamp', function () {
             if($scope.timer.data.invalid || $scope.timer.data.finished){
                 $scope.seconds = "none";
             }

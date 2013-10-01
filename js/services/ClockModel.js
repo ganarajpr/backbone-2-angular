@@ -6,14 +6,16 @@
  * To change this template use File | Settings | File Templates.
  */
 angular.module("myApp")
-    .factory("ClockModel",function($timeout,SPEED,$rootScope){
+    .factory("ClockModel",function($timeout,SPEED,$rootScope,util){
         return function(options){
             var self = this;
+            var deregister;
             this.data = {
-                timestamp : 0,
+                timestamp : util.utcNow(),
                 speed : SPEED,
                 invalid : false
             };
+
             if(options){
                 angular.extend(this.data,options)
             }
@@ -22,11 +24,14 @@ angular.module("myApp")
                 if(!self.data.invalid){
                     self.data.timestamp = self.data.timestamp + self.data.speed;
                 }
+                if(self.data.invalid){
+                    deregister();
+                }
             };
             this.powerOut = function(){
-                this.data.invalid = true;
+                self.data.invalid = true;
             };
-            $rootScope.$on("tick",this.tick);
+            deregister = $rootScope.$on("tick",this.tick);
 
         };
     });
