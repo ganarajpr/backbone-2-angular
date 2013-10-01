@@ -15,11 +15,9 @@ angular.module("myApp")
             if(Math.random() > .6){
                 $scope.semicolon = !$scope.semicolon;
             }
-            startTimer();
-        };
-        function startTimer(){
             $timeout(toggleWink,speedOfWink);
-        }
-        startTimer();
+        };
+
+        toggleWink();
 
     });
