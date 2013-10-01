@@ -7,16 +7,24 @@
 <body>
     <div class="container" ng-controller="TimerController">
         <div class="row" ng-repeat="timer in timers">
-            <div class="col-md-4">[{timer.counter | time}]</div>
-            <div class="col-md-4">[{timer.counter}]</div>
-            <div class="col-md-4">Hooray [{timer.counter % 10 }]</div>
+            <div class="col-md-4" ng-controller="DigitalController">
+                {{displayTime}}
+            </div>
+            <div class="col-md-4" ng-controller="SecondsController">{{seconds}}</div>
+            <div class="col-md-4" ng-controller="WinkyController">
+                Hooray! {{ ten }}! <span ></span>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/services/CounterModel.js"></script>
+    <script type="text/javascript" src="js/services/ClockModel.js"></script>
+    <script type="text/javascript" src="js/services/TimerModel.js"></script>
     <script type="text/javascript" src="js/services/TimeModelService.js"></script>
     <script type="text/javascript" src="js/services/util.js"></script>
     <script type="text/javascript" src="js/controllers/TimerController.js"></script>
+    <script type="text/javascript" src="js/controllers/DigitalController.js"></script>
+    <script type="text/javascript" src="js/controllers/SecondsController.js"></script>
+    <script type="text/javascript" src="js/controllers/WinkyController.js"></script>
 </body>
 </html>
