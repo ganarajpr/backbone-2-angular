@@ -7,12 +7,12 @@
 <body>
     <div class="container" ng-controller="TimerController">
         <div class="row" ng-repeat="timer in timers">
-            <div class="col-md-4" ng-controller="DigitalController">
+            <div class="col-xs-4" ng-controller="DigitalController">
                 <button ng-click="buttonPushed()">click</button>
                 {{displayTime}}
             </div>
-            <div class="col-md-4" ng-controller="SecondsController">{{seconds}}</div>
-            <div class="col-md-4" ng-controller="WinkyController">
+            <div class="col-xs-4" ng-controller="SecondsController">{{seconds}}</div>
+            <div class="col-xs-4" ng-controller="WinkyController">
                 Hooray! {{ ten }}! <span ng-if="semicolon">;</span><span ng-if="!semicolon">:</span>D
             </div>
         </div>
