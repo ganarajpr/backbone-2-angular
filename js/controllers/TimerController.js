@@ -8,4 +8,11 @@
 angular.module("myApp")
     .controller("TimerController",function($scope,TimeModelService){
         $scope.timers = TimeModelService.timers;
+        $scope.resolveTime = function(obj){
+            return obj.timestamp || obj.counter;
+        };
+
+        $scope.resolveButtonAction = function(obj){
+            return obj.powerOut || obj.reverse || angular.noop;
+        };
     });
